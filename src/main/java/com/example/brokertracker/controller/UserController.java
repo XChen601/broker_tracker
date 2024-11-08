@@ -33,4 +33,15 @@ public class UserController {
             return ResponseEntity.status(500).body(null);
         }
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
+        try {
+            return ResponseEntity.ok(userService.updateUser(id, user));
+        } catch (Exception e) {
+            logger.error("Error updating user", e);
+            return ResponseEntity.status(500).body(null);
+        }
+    }
+
 }
