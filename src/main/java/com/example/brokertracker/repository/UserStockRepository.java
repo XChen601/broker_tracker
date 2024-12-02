@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface UserStockRepository extends JpaRepository<UserStock, Long> {
     List<UserStock> findByUser_Id(Long userId);
+
 }
